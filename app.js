@@ -24,14 +24,3 @@ listContainer.addEventListener("click", e => {
     }
     saveData();
 });
-
-//Storage of data
-function saveData(){
-    localStorage.setItem("data", listContainer.innerHTML);
-}
-
-//Storage on the browser
-function showTask(){
-    listContainer.innerHTML = localStorage.getItem("data");
-}
-showTask();
