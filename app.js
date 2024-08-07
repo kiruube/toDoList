@@ -12,3 +12,26 @@ function addTask(){
     inputBox.value = "";
     saveData();
 };
+
+//button click function includes deleting and checking and unchecking completed tasks
+listContainer.addEventListener("click", e => {
+    const { target } = e;
+
+    if (target.matches("li")) {
+        target.classList.toggle("checked");
+    } else if (target.matches("span")) {
+        target.parentElement.remove();
+    }
+    saveData();
+});
+
+//Storage of data
+function saveData(){
+    localStorage.setItem("data", listContainer.innerHTML);
+}
+
+//Storage on the browser
+function showTask(){
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();
